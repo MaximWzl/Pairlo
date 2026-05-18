@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pairlo — Kleine Creator. Echte Brands.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#FAFAF7;
+  --ink:#1A1A18;
+  --ink2:#4A4A45;
+  --accent:#1D9E75;
+  --accent-light:#E1F5EE;
+  --accent2:#D85A30;
+  --border:#E8E8E2;
+  --card:#FFFFFF;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 2.5rem;border-bottom:1px solid var(--border);background:var(--cream);position:sticky;top:0;z-index:100}
+.logo{font-family:'DM Serif Display',serif;font-size:1.6rem;color:var(--ink);letter-spacing:-0.5px}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{text-decoration:none;color:var(--ink2);font-size:0.9rem;transition:color 0.2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{background:var(--ink);color:#fff;padding:0.6rem 1.4rem;border-radius:100px;font-size:0.875rem;font-weight:500;border:none;cursor:pointer;transition:opacity 0.2s}
+.nav-cta:hover{opacity:0.85}
+
+.hero{padding:6rem 2.5rem 5rem;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:var(--accent-light);color:#0F6E56;padding:0.4rem 1rem;border-radius:100px;font-size:0.8rem;font-weight:500;margin-bottom:1.5rem}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%;display:inline-block}
+h1{font-family:'DM Serif Display',serif;font-size:3.5rem;line-height:1.1;letter-spacing:-1px;margin-bottom:1.25rem;color:var(--ink)}
+h1 em{font-style:italic;color:var(--accent)}
+.hero-sub{font-size:1.05rem;color:var(--ink2);line-height:1.7;margin-bottom:2.25rem;font-weight:300}
+.btn-primary{background:var(--ink);color:#fff;padding:0.85rem 1.75rem;border-radius:100px;font-size:0.9rem;font-weight:500;border:none;cursor:pointer;transition:all 0.2s;display:inline-block;text-decoration:none}
+.btn-primary:hover{background:#333}
+
+.hero-visual{position:relative}
+.mock-cards{display:flex;flex-direction:column;gap:0.75rem}
+.mock-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:1rem 1.25rem;display:flex;align-items:center;gap:1rem;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+.mock-avatar{width:44px;height:44px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:0.85rem;color:#fff}
+.av1{background:#1D9E75}.av2{background:#D85A30}.av3{background:#7F77DD}
+.mock-info{flex:1;min-width:0}
+.mock-name{font-weight:500;font-size:0.9rem;color:var(--ink);margin-bottom:0.2rem}
+.mock-meta{font-size:0.78rem;color:var(--ink2)}
+.mock-badge{font-size:0.7rem;padding:0.2rem 0.6rem;border-radius:100px;font-weight:500}
+.badge-green{background:#E1F5EE;color:#0F6E56}
+.badge-orange{background:#FAECE7;color:#993C1D}
+.badge-purple{background:#EEEDFE;color:#3C3489}
+.mock-match{font-size:0.78rem;font-weight:600;color:var(--accent);margin-top:0.15rem}
+.floating-tag{position:absolute;top:-1rem;right:-0.5rem;background:var(--ink);color:#fff;padding:0.5rem 1rem;border-radius:100px;font-size:0.78rem;font-weight:500;white-space:nowrap}
+.floating-tag2{position:absolute;bottom:-1rem;left:-0.5rem;background:var(--accent);color:#fff;padding:0.5rem 1rem;border-radius:100px;font-size:0.78rem;font-weight:500;white-space:nowrap}
+
+.stats-bar{background:var(--ink);color:#fff;padding:1.5rem 2.5rem;display:flex;justify-content:center;gap:4rem;flex-wrap:wrap}
+.stat-item{text-align:center}
+.stat-num{font-family:'DM Serif Display',serif;font-size:2rem;display:block}
+.stat-label{font-size:0.8rem;color:rgba(255,255,255,0.6);margin-top:0.15rem}
+
+.section{padding:5rem 2.5rem;max-width:1100px;margin:0 auto}
+.section-label{font-size:0.8rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+.section-title{font-family:'DM Serif Display',serif;font-size:2.4rem;line-height:1.2;letter-spacing:-0.5px;margin-bottom:1rem}
+.section-sub{font-size:1rem;color:var(--ink2);line-height:1.7;max-width:520px;font-weight:300}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3.5rem}
+.feature-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2rem;position:relative;overflow:hidden}
+.feature-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.fc-creator::before{background:var(--accent)}
+.fc-brand::before{background:var(--accent2)}
+.fc-title{font-family:'DM Serif Display',serif;font-size:1.3rem;margin-bottom:0.75rem}
+.fc-list{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
+.fc-list li{display:flex;align-items:flex-start;gap:0.6rem;font-size:0.875rem;color:var(--ink2);line-height:1.5}
+.fc-list li::before{content:'✓';color:var(--accent);font-weight:600;flex-shrink:0;margin-top:1px}
+.fc-brand .fc-list li::before{color:var(--accent2)}
+
+.how-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.step{text-align:center;padding:2rem 1.5rem}
+.step-num{width:48px;height:48px;border-radius:50%;background:var(--accent-light);color:var(--accent);display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:1.3rem;margin:0 auto 1rem}
+.step-title{font-weight:600;font-size:0.95rem;margin-bottom:0.5rem}
+.step-desc{font-size:0.85rem;color:var(--ink2);line-height:1.6}
+
+.trust-section{padding:5rem 2.5rem;background:#F0FAF5;border-top:1px solid #C8EAD8;border-bottom:1px solid #C8EAD8}
+.trust-inner{max-width:1100px;margin:0 auto}
+.trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.trust-card{background:#fff;border:1px solid #C8EAD8;border-radius:20px;padding:1.75rem;position:relative;overflow:hidden}
+.trust-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent)}
+.trust-title{font-weight:600;font-size:0.95rem;margin-bottom:0.5rem;color:var(--ink)}
+.trust-desc{font-size:0.825rem;color:var(--ink2);line-height:1.6}
+
+.waitlist-section{padding:6rem 2.5rem;background:var(--cream)}
+.waitlist-inner{max-width:680px;margin:0 auto;text-align:center}
+.waitlist-inner h2{font-family:'DM Serif Display',serif;font-size:2.8rem;line-height:1.1;letter-spacing:-1px;margin-bottom:1rem}
+.waitlist-inner p{color:var(--ink2);font-size:1rem;margin-bottom:2.5rem;line-height:1.7;font-weight:300}
+
+.waitlist-tabs{display:flex;gap:0.5rem;justify-content:center;margin-bottom:2rem}
+.tab-btn{padding:0.55rem 1.25rem;border-radius:100px;font-size:0.875rem;font-weight:500;cursor:pointer;border:1.5px solid var(--border);background:transparent;color:var(--ink2);transition:all 0.2s;font-family:'DM Sans',sans-serif}
+.tab-btn.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+.waitlist-form{background:#fff;border:1px solid var(--border);border-radius:24px;padding:2rem 2.5rem}
+.form-row{display:flex;gap:0.75rem;margin-bottom:1rem}
+.form-input{flex:1;padding:0.85rem 1.25rem;border:1.5px solid var(--border);border-radius:100px;font-size:0.9rem;font-family:'DM Sans',sans-serif;color:var(--ink);background:#fff;outline:none;transition:border-color 0.2s}
+.form-input:focus{border-color:var(--accent)}
+.form-input::placeholder{color:#AAAA9F}
+.form-select{flex:1;padding:0.85rem 1.25rem;border:1.5px solid var(--border);border-radius:100px;font-size:0.9rem;font-family:'DM Sans',sans-serif;color:var(--ink);background:#fff;outline:none;transition:border-color 0.2s;appearance:none;cursor:pointer}
+.form-select:focus{border-color:var(--accent)}
+.form-textarea{width:100%;padding:1rem 1.25rem;border:1.5px solid var(--border);border-radius:16px;font-size:0.875rem;font-family:'DM Sans',sans-serif;color:var(--ink);background:#fff;outline:none;transition:border-color 0.2s;resize:none;line-height:1.6;margin-bottom:1rem}
+.form-textarea:focus{border-color:var(--accent)}
+.form-textarea::placeholder{color:#AAAA9F}
+.form-textarea-label{font-size:0.78rem;font-weight:500;color:var(--ink2);text-align:left;display:block;margin-bottom:0.4rem}
+.submit-btn{width:100%;padding:0.95rem;border-radius:100px;background:var(--ink);color:#fff;font-size:0.95rem;font-weight:500;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s}
+.submit-btn:hover{background:#333}
+.submit-btn:active{transform:scale(0.98)}
+.form-note{font-size:0.78rem;color:var(--ink2);margin-top:1rem;text-align:center}
+
+.success-state{display:none;flex-direction:column;align-items:center;gap:1rem;padding:1rem 0}
+.success-icon{width:56px;height:56px;border-radius:50%;background:var(--accent-light);display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+.success-title{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--ink)}
+.success-sub{font-size:0.875rem;color:var(--ink2);text-align:center;line-height:1.6;max-width:320px}
+.counter-pill{background:var(--accent-light);color:#0F6E56;padding:0.35rem 1rem;border-radius:100px;font-size:0.8rem;font-weight:500;margin-top:0.5rem;display:inline-block}
+
+.waitlist-social-proof{display:flex;align-items:center;justify-content:center;gap:0.75rem;margin-top:2rem}
+.proof-avatars{display:flex}
+.proof-avatar{width:32px;height:32px;border-radius:50%;border:2px solid var(--cream);display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:600;color:#fff;margin-left:-8px}
+.proof-avatar:first-child{margin-left:0}
+.pa1{background:#1D9E75}.pa2{background:#D85A30}.pa3{background:#7F77DD}.pa4{background:#BA7517}
+.proof-text{font-size:0.825rem;color:var(--ink2)}
+.proof-text strong{color:var(--ink);font-weight:600}
+
+footer{border-top:1px solid var(--border);padding:2rem 2.5rem;display:flex;justify-content:space-between;align-items:center;max-width:1100px;margin:0 auto}
+.footer-logo{font-family:'DM Serif Display',serif;font-size:1.2rem}
+.footer-logo span{color:var(--accent)}
+.footer-note{font-size:0.8rem;color:var(--ink2)}
+
+@media(max-width:768px){
+  nav{padding:1rem 1.25rem}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr;padding:3rem 1.25rem;gap:2rem}
+  h1{font-size:2.4rem}
+  .hero-visual{display:none}
+  .stats-bar{gap:2rem;padding:1.5rem 1rem}
+  .two-col{grid-template-columns:1fr}
+  .how-steps{grid-template-columns:1fr}
+  .trust-grid{grid-template-columns:1fr}
+  .section{padding:3rem 1.25rem}
+  .trust-section{padding:3rem 1.25rem}
+  .waitlist-section{padding:3rem 1.25rem}
+  .waitlist-inner h2{font-size:2rem}
+  .waitlist-form{padding:1.5rem}
+  .form-row{flex-direction:column}
+  footer{flex-direction:column;gap:1rem;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">pair<span>lo</span></div>
+  <ul class="nav-links">
+    <li><a href="#fuer-creator">Für Creator</a></li>
+    <li><a href="#fuer-brands">Für Brands</a></li>
+    <li><a href="#wie-es-funktioniert">Wie es funktioniert</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">Zur Waitlist →</button>
+</nav>
+
+<section style="max-width:1100px;margin:0 auto">
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">Bald verfügbar — jetzt Platz sichern</div>
+      <h1>Kleine Creator.<br><em>Echte</em> Brands.</h1>
+      <p class="hero-sub">Pairlo verbindet Nano-Creator ab 500 Followern mit lokalen Businesses und kleinen Brands — einfach, sicher und ohne klassische Agentur.</p>
+      <button class="btn-primary" onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">Platz auf der Waitlist sichern →</button>
+    </div>
+    <div class="hero-visual">
+      <div class="floating-tag">✓ Verifizierter Creator</div>
+      <div class="mock-cards">
+        <div class="mock-card">
+          <div class="mock-avatar av1">LM</div>
+          <div class="mock-info">
+            <div class="mock-name">Lisa M. · Köln</div>
+            <div class="mock-meta">Food & Lifestyle · Instagram</div>
+            <div class="mock-meta">1.200 – 5.000 Follower</div>
+          </div>
+          <div><div class="mock-badge badge-green">Verfügbar</div><div class="mock-match">91% Match</div></div>
+        </div>
+        <div class="mock-card">
+          <div class="mock-avatar av2">TK</div>
+          <div class="mock-info">
+            <div class="mock-name">Tom K. · Düsseldorf</div>
+            <div class="mock-meta">Fitness & Sport · TikTok</div>
+            <div class="mock-meta">3.000 – 8.000 Follower</div>
+          </div>
+          <div><div class="mock-badge badge-orange">Anfrage senden</div><div class="mock-match">78% Match</div></div>
+        </div>
+        <div class="mock-card">
+          <div class="mock-avatar av3">SM</div>
+          <div class="mock-info">
+            <div class="mock-name">Sara M. · Maastricht</div>
+            <div class="mock-meta">Beauty & Fashion · Instagram</div>
+            <div class="mock-meta">500 – 2.000 Follower</div>
+          </div>
+          <div><div class="mock-badge badge-purple">Neu</div><div class="mock-match">85% Match</div></div>
+        </div>
+      </div>
+      <div class="floating-tag2">🤝 Deal abgeschlossen</div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="stat-item"><span class="stat-num">ab 500</span><div class="stat-label">Follower reichen</div></div>
+  <div class="stat-item"><span class="stat-num">0 €</span><div class="stat-label">Für Creator kostenlos</div></div>
+  <div class="stat-item"><span class="stat-num">100%</span><div class="stat-label">Deals über die Plattform</div></div>
+  <div class="stat-item"><span class="stat-num">DACH</span><div class="stat-label">Deutschland & Niederlande</div></div>
+</div>
+
+<div class="section" id="fuer-creator">
+  <div class="section-label">Was ist Pairlo?</div>
+  <h2 class="section-title">Kooperationen, die wirklich passen.</h2>
+  <p class="section-sub">Keine riesigen Followerzahlen, keine Agenturpreise. Nur echte Verbindungen zwischen kleinen Creatorn und Brands die zu ihnen passen.</p>
+  <div class="two-col" id="fuer-brands">
+    <div class="feature-card fc-creator">
+      <div class="fc-title">🎬 Für Creator</div>
+      <ul class="fc-list">
+        <li>Kostenlos registrieren & Profil erstellen</li>
+        <li>Erste Brand Deals ohne 50k Follower</li>
+        <li>Produkte testen & Content erstellen</li>
+        <li>Portfolio aufbauen & Bewertungen sammeln</li>
+        <li>Sicher bezahlt werden über die Plattform</li>
+        <li>Kampagnen entdecken und bewerben</li>
+      </ul>
+    </div>
+    <div class="feature-card fc-brand">
+      <div class="fc-title">🏪 Für Brands & lokale Businesses</div>
+      <ul class="fc-list">
+        <li>Passende Creator nach Nische & Stadt filtern</li>
+        <li>Authentischer Content für kleines Budget</li>
+        <li>Kampagnen erstellen & Bewerbungen erhalten</li>
+        <li>Briefing, Chat & Deal an einem Ort</li>
+        <li>Verifizierte Profile, keine Fake-Follower</li>
+        <li>Günstiger als klassische Influencer-Agenturen</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div style="background:#F5F5F0;padding:5rem 0" id="wie-es-funktioniert">
+  <div class="section" style="padding-top:0;padding-bottom:0">
+    <div class="section-label">So funktioniert's</div>
+    <h2 class="section-title">In drei Schritten zum Deal.</h2>
+    <div class="how-steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-title">Profil erstellen</div>
+        <div class="step-desc">Creator bauen ihr Profil auf — Nische, Plattform, Preise. Brands beschreiben ihr Unternehmen und was sie suchen.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-title">Anfrage senden</div>
+        <div class="step-desc">Brands finden passende Creator und senden eine Anfrage über die Plattform. Creator bewerben sich auf Kampagnen.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-title">Deal abschließen</div>
+        <div class="step-desc">Beide einigen sich auf Leistung, Preis und Deadline. Content wird geliefert, bewertet und bezahlt.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="trust-section">
+  <div class="trust-inner">
+    <div class="section-label">Sicherheit & Vertrauen</div>
+    <h2 class="section-title">Damit du dich auf das Wesentliche konzentrieren kannst.</h2>
+    <p class="section-sub">Pairlo ist so gebaut, dass beide Seiten geschützt sind — von der ersten Anfrage bis zum abgeschlossenen Deal.</p>
+    <div class="trust-grid">
+      <div class="trust-card">
+        <div style="font-size:1.5rem;margin-bottom:0.85rem">🔒</div>
+        <div class="trust-title">Keine öffentlichen Kontaktdaten</div>
+        <div class="trust-desc">Handles, E-Mail und Telefonnummern sind geschützt. Kontakt läuft sicher über die Plattform — immer.</div>
+      </div>
+      <div class="trust-card">
+        <div style="font-size:1.5rem;margin-bottom:0.85rem">✅</div>
+        <div class="trust-title">Verifizierte Profile</div>
+        <div class="trust-desc">Jedes Creator- und Brand-Profil wird geprüft bevor es sichtbar wird. Keine Fake-Follower, keine Fake-Unternehmen.</div>
+      </div>
+      <div class="trust-card">
+        <div style="font-size:1.5rem;margin-bottom:0.85rem">⭐</div>
+        <div class="trust-title">Bewertungen nach jedem Deal</div>
+        <div class="trust-desc">Nach abgeschlossenem Deal bewerten sich beide Seiten gegenseitig. Echtes Vertrauen durch echte Erfahrungen.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="waitlist-section" id="waitlist">
+  <div class="waitlist-inner">
+    <div class="section-label" style="text-align:center">Early Access</div>
+    <h2>Sei dabei, wenn Pairlo startet.</h2>
+    <p>Trag dich jetzt ein und sichere dir deinen Platz. Creator erhalten frühen Zugang kostenlos. Brands bekommen die ersten 30 Tage gratis.</p>
+    <div class="waitlist-tabs">
+      <button class="tab-btn active" onclick="switchTab('creator', this)">Ich bin Creator</button>
+      <button class="tab-btn" onclick="switchTab('brand', this)">Ich bin eine Brand</button>
+    </div>
+    <div class="waitlist-form" id="form-container">
+      <div id="form-fields">
+        <div class="form-row">
+          <input class="form-input" type="text" id="input-name" placeholder="Dein Name" />
+          <input class="form-input" type="email" id="input-email" placeholder="Deine E-Mail" />
+        </div>
+        <div class="form-row" id="creator-row">
+          <select class="form-select" id="input-platform">
+            <option value="" disabled selected>Hauptplattform</option>
+            <option>Instagram</option>
+            <option>TikTok</option>
+            <option>YouTube</option>
+            <option>Mehrere Plattformen</option>
+          </select>
+          <select class="form-select" id="input-followers">
+            <option value="" disabled selected>Followerzahl</option>
+            <option>500 – 1.000</option>
+            <option>1.000 – 5.000</option>
+            <option>5.000 – 10.000</option>
+            <option>10.000 – 50.000</option>
+          </select>
+        </div>
+        <div id="creator-content-row">
+          <label class="form-textarea-label">Was ist dein Content? Beschreib kurz was du machst.</label>
+          <textarea class="form-textarea" id="input-content" rows="3" placeholder="z.B. Ich poste über vegane Rezepte und Restauranttipps in Köln. Hauptsächlich Reels und Stories auf Instagram..."></textarea>
+        </div>
+        <div class="form-row" id="brand-row" style="display:none">
+          <input class="form-input" type="text" id="input-company" placeholder="Unternehmensname" />
+          <select class="form-select" id="input-industry">
+            <option value="" disabled selected>Branche</option>
+            <option>Food & Getränke</option>
+            <option>Beauty & Kosmetik</option>
+            <option>Fashion & Lifestyle</option>
+            <option>Fitness & Sport</option>
+            <option>Lokales Business</option>
+            <option>E-Commerce / D2C</option>
+            <option>Sonstiges</option>
+          </select>
+        </div>
+        <div id="brand-content-row" style="display:none">
+          <label class="form-textarea-label">Was suchst du? Beschreib kurz welchen Content du dir vorstellst.</label>
+          <textarea class="form-textarea" id="input-brand-content" rows="3" placeholder="z.B. Wir sind ein kleines Café in Maastricht und suchen jemanden der unsere neuen Frühstücksgerichte auf Instagram vorstellt..."></textarea>
+        </div>
+        <button class="submit-btn" onclick="submitWaitlist()">Platz sichern — kostenlos</button>
+        <p class="form-note">Kein Spam. Keine Weitergabe. Nur Pairlo-Updates.</p>
+      </div>
+      <div class="success-state" id="success-state">
+        <div class="success-icon">✓</div>
+        <div class="success-title">Du bist auf der Liste!</div>
+        <div class="success-sub" id="success-msg">Wir melden uns sobald Pairlo startet. Du bist unter den Ersten dabei.</div>
+        <div class="counter-pill">🎉 Du bist #<span id="counter-num">47</span> auf der Waitlist</div>
+      </div>
+    </div>
+    <div class="waitlist-social-proof">
+      <div class="proof-avatars">
+        <div class="proof-avatar pa1">LM</div>
+        <div class="proof-avatar pa2">TK</div>
+        <div class="proof-avatar pa3">SM</div>
+        <div class="proof-avatar pa4">JR</div>
+      </div>
+      <div class="proof-text"><strong id="proof-count">43 Personen</strong> haben sich bereits eingetragen</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">pair<span>lo</span></div>
+  <div class="footer-note">© 2025 Pairlo · Impressum · Datenschutz · AGB</div>
+</footer>
+
+<script>
+var currentTab = 'creator';
+var signupCount = 43;
+function switchTab(tab, btn) {
+  currentTab = tab;
+  document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  if(tab === 'creator') {
+    document.getElementById('creator-row').style.display = 'flex';
+    document.getElementById('creator-content-row').style.display = 'block';
+    document.getElementById('brand-row').style.display = 'none';
+    document.getElementById('brand-content-row').style.display = 'none';
+  } else {
+    document.getElementById('creator-row').style.display = 'none';
+    document.getElementById('creator-content-row').style.display = 'none';
+    document.getElementById('brand-row').style.display = 'flex';
+    document.getElementById('brand-content-row').style.display = 'block';
+  }
+}
+function submitWaitlist() {
+  var name = document.getElementById('input-name').value.trim();
+  var email = document.getElementById('input-email').value.trim();
+  if(!name || !email) {
+    document.getElementById('input-name').style.borderColor = name ? 'var(--border)' : 'var(--accent2)';
+    document.getElementById('input-email').style.borderColor = email ? 'var(--border)' : 'var(--accent2)';
+    return;
+  }
+  signupCount++;
+  document.getElementById('counter-num').textContent = signupCount;
+  document.getElementById('success-msg').textContent = currentTab === 'creator'
+    ? 'Wir melden uns sobald Pairlo startet. Als Creator bekommst du frühen Zugang komplett kostenlos.'
+    : 'Wir melden uns sobald Pairlo startet. Als Brand bekommst du die ersten 30 Tage gratis.';
+  document.getElementById('form-fields').style.display = 'none';
+  document.getElementById('success-state').style.display = 'flex';
+  document.getElementById('proof-count').textContent = signupCount + ' Personen';
+}
+</script>
+</body>
+</html>
